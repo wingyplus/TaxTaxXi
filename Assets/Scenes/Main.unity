@@ -505,7 +505,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.45, y: 0.85333335}
-    newSize: {x: 1.89, y: 2.72}
+    newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -567,12 +567,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4ade77a5ab0b949f2b8334d499567b84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 058b31e2abe03b141a766d84d5f6e6dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.89, y: 2.72}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -798,7 +798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   step: 0
+  tagofObj: 
   counttime: 1
+  _CarController: {fileID: 1603874214}
 --- !u!1 &1615901414
 GameObject:
   m_ObjectHideFlags: 0

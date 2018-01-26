@@ -9,6 +9,7 @@ public class HitCollider : MonoBehaviour {
 	public string tagofObj;
 	public float counttime;
 	private float forpickup;
+	public CarController _CarController;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +36,7 @@ public class HitCollider : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (step == OnTriggeris.Stay) {
+		if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0) {
 			if (forpickup >= 0) {
 				forpickup -= Time.deltaTime;
 			} else {
