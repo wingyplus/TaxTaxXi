@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1722943-e7a1-434a-92f4-52a3a67ac006" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/contentModel.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/indexLayout.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/riderModule.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Plugins.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.TaxTaxXi/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CarController.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,14 +17,14 @@
       <file leaf-file-name="CarController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/CarController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="140">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
-                <marker date="1516974280000" expanded="false" signature="6:78" ph="..." />
-                <marker date="1516974280000" expanded="true" signature="122:721" ph="{...}" />
-                <marker date="1516974280000" expanded="true" signature="277:313" ph="{...}" />
-                <marker date="1516974280000" expanded="true" signature="372:719" ph="{...}" />
-                <marker date="1516974280000" expanded="true" signature="477:526" ph="{...}" />
+                <marker date="1516974435000" expanded="false" signature="6:78" ph="..." />
+                <marker date="1516974435000" expanded="true" signature="122:765" ph="{...}" />
+                <marker date="1516974435000" expanded="true" signature="280:350" ph="{...}" />
+                <marker date="1516974435000" expanded="true" signature="409:763" ph="{...}" />
+                <marker date="1516974435000" expanded="true" signature="516:566" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -147,12 +136,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516973745438</updated>
-      <workItem from="1516973746599" duration="533000" />
+      <workItem from="1516973746599" duration="688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="533000" />
+    <option name="totallyTimeSpent" value="688000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -203,14 +192,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/CarController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="140">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1516974280000" expanded="false" signature="6:78" ph="..." />
-            <marker date="1516974280000" expanded="true" signature="122:721" ph="{...}" />
-            <marker date="1516974280000" expanded="true" signature="277:313" ph="{...}" />
-            <marker date="1516974280000" expanded="true" signature="372:719" ph="{...}" />
-            <marker date="1516974280000" expanded="true" signature="477:526" ph="{...}" />
+            <marker date="1516974435000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1516974435000" expanded="true" signature="122:765" ph="{...}" />
+            <marker date="1516974435000" expanded="true" signature="280:350" ph="{...}" />
+            <marker date="1516974435000" expanded="true" signature="409:763" ph="{...}" />
+            <marker date="1516974435000" expanded="true" signature="516:566" ph="{...}" />
           </folding>
         </state>
       </provider>
