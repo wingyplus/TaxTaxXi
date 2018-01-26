@@ -21,9 +21,10 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(InputKeys[0]) && _isMove || Input.GetKeyDown(InputKeys[1]) && !_isMove)
+		if ((Input.GetKeyDown(InputKeys[0]) && _isMove) ||( Input.GetKeyDown(InputKeys[1]) && !_isMove))
         {
             _carMove = Speed;
+			_isMove = !_isMove;
         }
 
         if (_carMove == Vector3.zero) return;
