@@ -619,7 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputKeys: 6100000064000000
   Speed: {x: 0, y: 0, z: 0}
-  Step: 0
+  Fraction: 0.01
 --- !u!212 &1603874215
 SpriteRenderer:
   m_ObjectHideFlags: 0
