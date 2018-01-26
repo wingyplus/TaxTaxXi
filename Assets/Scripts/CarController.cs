@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public KeyCode[] input_car;
-    private bool move;
-    public Vector3 speed_car;
-    public float step;
-    private Vector3 carmove;
-    // Use this for initialization
+    public KeyCode[] InputKeys;
+    public Vector3 Speed;
+    public float Step;
+
+    private bool _isMove;
+    private Vector3 _carMove;
+
     void Start()
     {
-
+        _isMove = false;
+        _carMove = Vector3.zero;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(input_car[0]) && move)
+        if (Input.GetKeyDown(InputKeys[0]) && _isMove || Input.GetKeyDown(InputKeys[1]) && !_isMove)
         {
-            carmove = speed_car;
-        }
-        else if (Input.GetKeyDown(input_car[1]) && !move)
-        {
-            carmove = speed_car;
-            //transform.Translate(carmove * Time.deltaTime);
-        }
-        if (carmove != Vector3.zero)
-        {
-            carmove = Vector3.MoveTowards(speed_car, Vector3.zero, step * Time.deltaTime);
-            transform.Translate(carmove * Time.deltaTime);
+            _carMove = Speed;
         }
 
+        if (_carMove == Vector3.zero) return;
+
+        _carMove = Vector3.MoveTowards(_carMove, Vector3.zero, Step * Time.deltaTime);
+        transform.Translate(_carMove * Time.deltaTime);
     }
 }
