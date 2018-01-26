@@ -222,9 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1312726dff589f74f8eb4879b145828f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input_car: 6100000064000000
-  speed_car: {x: -3, y: 0, z: 0}
-  step: 99
+  InputKeys: 6100000064000000
+  speed_car: {x: 0, y: 0, z: 0}
+  step: 0
 --- !u!212 &1603874215
 SpriteRenderer:
   m_ObjectHideFlags: 0
