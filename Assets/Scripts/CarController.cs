@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
     public KeyCode[] InputKeys;
     public float Speed;
     public float Fraction;
+    public Text Money;
 
     private bool _isMove;
     private Vector3 _carMove;
@@ -17,8 +20,18 @@ public class CarController : MonoBehaviour
         _isMove = false;
         _carMove = Vector3.zero;
         _velocity = 0f;
+        ResetMoney();
     }
 
+    private void ResetMoney()
+    {
+        Money.text = "0";
+    }
+
+    private void AddMoney(int money)
+    {
+        Money.text = (money + int.Parse(Money.text)).ToString();
+    }
 
     // Update is called once per frame
     void Update()
