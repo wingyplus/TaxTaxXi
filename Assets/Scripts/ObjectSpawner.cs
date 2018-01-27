@@ -17,7 +17,8 @@ public class ObjectSpawner : MonoBehaviour {
 
     public ObjectPooler[] ObjectPool;
     public GameObject ObjectDestroyReference;
-
+	public Color[] _pickcolor;
+	public string[] _picktext;
     void Start()
     {
         objectswidth = new float[ObjectPool.Length];
@@ -50,8 +51,12 @@ public class ObjectSpawner : MonoBehaviour {
 				ObjectSelfDestroyer.Add (startPlatform.GetComponent<ObjectSelfDestroyer> ());
 				ObjectSelfDestroyer[ObjectSelfDestroyer.Count-1].SetObjectDestructionPoint(ObjectDestroyReference);
 				//startPlatform.GetComponent<ObjectSelfDestroyer> ();
-
 				//ObjectSelfDestroyer.SetObjectDestructionPoint(ObjectDestroyReference);
+				if (startPlatform.GetComponent<ObjectConfig> ()) {
+					startPlatform.GetComponent<ObjectConfig> ().ID =  Random.Range(0, _pickcolor.Length);
+					startPlatform.GetComponent<ObjectConfig> ().UIname.text = _picktext[startPlatform.GetComponent<ObjectConfig> ().ID];
+					startPlatform.GetComponent<SpriteRenderer>().color = _pickcolor[startPlatform.GetComponent<ObjectConfig> ().ID];
+				}
             }
         }
     }
