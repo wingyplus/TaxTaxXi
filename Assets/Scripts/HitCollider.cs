@@ -2,69 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitCollider : MonoBehaviour
-{
-    public enum OnTriggeris
-    {
-        Enter,
-        Exit,
-        Stay
-    };
+public class HitCollider : MonoBehaviour {
 
-    public OnTriggeris step = OnTriggeris.Enter;
-    public string TagOfObject;
-    public float counttime;
-    private float forpickup;
-    public CarController _CarController;
-    
-    public UnityEngine.UI.Text Money;
-    private MoneyComponent _moneyComponent;
+	public enum OnTriggeris {Enter,Exit,Stay};
+	public OnTriggeris step = OnTriggeris.Enter;
+	public string tagofObj;
+	public float counttime;
+	private float forpickup;
+	public CarController _CarController;
 
-    // Use this for initialization
-    void Start()
-    {
-        _moneyComponent = Money.GetComponent<MoneyComponent>();
-    }
+	//pick people
+	public string IDpeople;
+	public bool canpickup;
+	private ObjectConfig _ObjectConfig;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //In 
-        TagOfObject = other.tag;
-        forpickup = counttime;
-        step = OnTriggeris.Enter;
-    }
+	public UnityEngine.UI.Text Money;
+	private MoneyComponent _moneyComponent;
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        //Out
+	// Use this for initialization
+	void Start () {
+		canpickup = true;
+		_moneyComponent = Money.GetComponent<MoneyComponent>();
+	}
 
-        step = OnTriggeris.Exit;
-    }
+	void OnTriggerEnter2D(Collider2D other){
+		//In 
+		tagofObj = other.tag;
+		forpickup = counttime;
+		if(_ObjectConfig == null)
+		_ObjectConfig = other.GetComponent<ObjectConfig>();
+		step = OnTriggeris.Enter;
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        //Stay
+	}
 
-        step = OnTriggeris.Stay;
-    }
+	void OnTriggerExit2D(Collider2D other) {
+		//Out
+		if(_ObjectConfig == other.GetComponent<ObjectConfig>())
+		_ObjectConfig = null;
+		step = OnTriggeris.Exit;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0)
-        {
-            if (forpickup >= 0)
-            {
-                forpickup -= Time.deltaTime;
-            }
-            else
-            {
-                if (TagOfObject == "people")
-                    Debug.Log("pickup");
-                else if (TagOfObject == "building")
-                    _moneyComponent.AddMoney(100);
-                    Debug.Log("sendpeople");
-            }
-        }
-    }
+	void OnTriggerStay2D(Collider2D other) {
+		//Stay
+		if(_ObjectConfig == null)
+			_ObjectConfig = other.GetComponent<ObjectConfig>();
+		step = OnTriggeris.Stay;
+	}
+	// Update is called once per frame
+	void Update () {
+		if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null) {
+			if (forpickup >= 0) {
+				forpickup -= Time.deltaTime;
+			} else {
+				if (tagofObj == "people" && canpickup) {
+					Debug.Log ("pickup");
+					IDpeople = _ObjectConfig.ID;
+					_ObjectConfig.gameObject.SetActive (false);
+					canpickup = false;
+				} else if (tagofObj == "building" && !canpickup) {
+					
+					Debug.Log ("sendpeople");
+					canpickup = true;
+					if (IDpeople == _ObjectConfig.ID) {
+					// +100 score 
+						_moneyComponent.AddMoney(100);
+					} else {
+					// -100 score
+					
+					}
+				}
+			}
+		}
+	}
 }
