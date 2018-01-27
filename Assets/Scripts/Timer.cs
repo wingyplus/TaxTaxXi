@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour {
     public GameObject PlayerTwoScore;
     public GameObject PlayerOneResultText;
     public GameObject PlayerTwoResultText;
+    public GameObject MainMenuButton;
 
     private int p1Score, p2Score;
 
@@ -24,6 +25,7 @@ public class Timer : MonoBehaviour {
         remainingTime = timer;
         count = true;
 
+        MainMenuButton.SetActive(false);
         PlayerOneResultText.SetActive(false);
         if(PlayerTwoResultText != null)
         {
@@ -73,6 +75,7 @@ public class Timer : MonoBehaviour {
 
                 PlayerOneResultText.SetActive(true);
                 PlayerTwoResultText.SetActive(true);
+                MainMenuButton.SetActive(true);
             }
 		}
 	}
