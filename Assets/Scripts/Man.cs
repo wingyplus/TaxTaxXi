@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class ManSound : MonoBehaviour {
+public class Man : MonoBehaviour {
 
 	public AudioClip pickUpSound;
 	public AudioClip sentSound;
 
-	void OnTriggerEnter2D(Collider2D other)
+	private bool picking;
+
+	void Start()
 	{
-		if(other.tag == "car" && (other.GetComponent<Rigidbody2D>().velocity.x == 0)) {
-			PlayPickUpSound();
+		picking = false;
+	}
+
+	void Update()
+	{
+		if( picking && !GetComponent<AudioSource>().isPlaying ){
+			gameObject.SetActive(false);
+			picking = false;
 		}
-		
+	}
+	public void GotPickedUp(){
+		PlayPickUpSound();
+
+        picking = true;
 	}
 
 	public void PlayPickUpSound() {
