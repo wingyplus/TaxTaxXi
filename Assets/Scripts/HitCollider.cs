@@ -15,7 +15,8 @@ public class HitCollider : MonoBehaviour
     private enum PickupState
     {
         Pick,
-        Empty
+        Empty,
+        Kick
     }
 
     public OnTriggeris step = OnTriggeris.Enter;
@@ -52,6 +53,14 @@ public class HitCollider : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        // taxi has passenger and drive over building
+        if (_targetTagName == "building" && _peopleId != string.Empty && _pickupState == PickupState.Pick)
+        {
+            Debug.Log("pickup state: kick");
+            // kick passenger
+            _pickupState = PickupState.Kick;
+        }
+
         //Out
         if (_objectConfig == other.GetComponent<ObjectConfig>())
             _objectConfig = null;
@@ -94,6 +103,17 @@ public class HitCollider : MonoBehaviour
                     HandleBuildingState();
                     break;
             }
+
+            return;
+        }
+
+
+        if (_pickupState == PickupState.Kick)
+        {
+            Debug.Log("pickup state is kick. deduct money");
+            _moneyComponent.DeductMoney(100);
+            GetComponent<DriverSound>().PlayLosingSound();
+            _pickupState = PickupState.Empty;
         }
     }
 
@@ -118,18 +138,13 @@ public class HitCollider : MonoBehaviour
 
         if (_peopleId == _objectConfig.ID)
         {
-            // +100 score
+            // taxi receive 100 baht.
             _moneyComponent.AddMoney(100);
             GetComponent<DriverSound>().PlaySentSound();
-        }
-        else
-        {
-            // -100 score
-            _moneyComponent.DeductMoney(100);
-            GetComponent<DriverSound>().PlayLosingSound();
-        }
 
-        // taxi has not passenger.
-        _pickupState = PickupState.Empty;
+            // taxi has not passenger.
+            _pickupState = PickupState.Empty;
+            _peopleId = string.Empty;
+        }
     }
 }
