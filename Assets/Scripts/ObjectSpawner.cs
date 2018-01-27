@@ -16,6 +16,7 @@ public class ObjectSpawner : MonoBehaviour {
     private Vector3 newObjectPos;
 
     public ObjectPooler[] ObjectPool;
+    public GameObject ObjectDestroyReference;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class ObjectSpawner : MonoBehaviour {
                 startPlatform.transform.rotation = transform.rotation;
                 startPlatform.SetActive(true);
                 transform.position = new Vector3(transform.position.x - (objectswidth[selector] / 2), transform.position.y, transform.position.z);
+                startPlatform.GetComponent<ObjectSelfDestroyer>().SetObjectDestructionPoint(ObjectDestroyReference);
             }
         }
     }
