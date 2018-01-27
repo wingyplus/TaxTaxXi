@@ -11,6 +11,13 @@ public class HitCollider : MonoBehaviour
         Stay
     };
 
+    // PassengerState is state what taxi has passenger or not.
+    private enum PickupState
+    {
+        Pick,
+        Empty
+    }
+
     public OnTriggeris step = OnTriggeris.Enter;
     public string tagofObj;
     public float counttime;
@@ -19,7 +26,7 @@ public class HitCollider : MonoBehaviour
 
     //pick people
     private string _peopleId;
-    public bool canpickup;
+    private PickupState pickupState;
     private ObjectConfig _objectConfig;
 
     public UnityEngine.UI.Text Money;
@@ -28,7 +35,7 @@ public class HitCollider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        canpickup = true;
+        pickupState = PickupState.Empty;
         _moneyComponent = Money.GetComponent<MoneyComponent>();
     }
 
@@ -64,7 +71,13 @@ public class HitCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _objectConfig != null)
+        // not hit anything, skip it now.
+        if (_objectConfig == null)
+        {
+            return;
+        }
+
+        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0)
         {
             if (forpickup >= 0)
             {
@@ -72,18 +85,20 @@ public class HitCollider : MonoBehaviour
                 return;
             }
 
-            if (tagofObj == "people" && canpickup)
+            if (tagofObj == "people" && pickupState == PickupState.Empty)
             {
                 Debug.Log("pickup");
                 _peopleId = _objectConfig.ID;
                 GetComponent<DriverSound>().PlayPickUpSound();
                 _objectConfig.gameObject.SetActive(false);
-                canpickup = false;
+
+                // taxi pick passenger.
+                pickupState = PickupState.Pick;
             }
-            else if (tagofObj == "building" && !canpickup)
+            else if (tagofObj == "building" && pickupState == PickupState.Pick)
             {
                 Debug.Log("sendpeople");
-                canpickup = true;
+
                 if (_peopleId == _objectConfig.ID)
                 {
                     // +100 score
@@ -96,6 +111,9 @@ public class HitCollider : MonoBehaviour
                     _moneyComponent.DeductMoney(100);
                     GetComponent<DriverSound>().PlayLosingSound();
                 }
+
+                // taxi has not passenger.
+                pickupState = PickupState.Empty;
             }
         }
     }
