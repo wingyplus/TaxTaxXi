@@ -18,7 +18,7 @@ public class HitCollider : MonoBehaviour
     public CarController _CarController;
 
     //pick people
-    public string IDpeople;
+    private string _peopleId;
     public bool canpickup;
     private ObjectConfig _objectConfig;
 
@@ -75,7 +75,7 @@ public class HitCollider : MonoBehaviour
                 if (tagofObj == "people" && canpickup)
                 {
                     Debug.Log("pickup");
-                    IDpeople = _objectConfig.ID;
+                    _peopleId = _objectConfig.ID;
                     GetComponent<DriverSound>().PlayPickUpSound();
                     _objectConfig.gameObject.SetActive(false);
                     canpickup = false;
@@ -84,7 +84,7 @@ public class HitCollider : MonoBehaviour
                 {
                     Debug.Log("sendpeople");
                     canpickup = true;
-                    if (IDpeople == _objectConfig.ID)
+                    if (_peopleId == _objectConfig.ID)
                     {
                         // +100 score
                         _moneyComponent.AddMoney(100);
