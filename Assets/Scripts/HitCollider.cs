@@ -19,14 +19,14 @@ public class HitCollider : MonoBehaviour
     }
 
     public OnTriggeris step = OnTriggeris.Enter;
-    public string tagofObj;
+    private string _targetTagName;
     public float counttime;
     private float forpickup;
     public CarController _CarController;
 
     //pick people
     private string _peopleId;
-    private PickupState pickupState;
+    private PickupState _pickupState;
     private ObjectConfig _objectConfig;
 
     public UnityEngine.UI.Text Money;
@@ -35,14 +35,14 @@ public class HitCollider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        pickupState = PickupState.Empty;
+        _pickupState = PickupState.Empty;
         _moneyComponent = Money.GetComponent<MoneyComponent>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         //In
-        tagofObj = other.tag;
+        _targetTagName = other.tag;
         forpickup = counttime;
         if (_objectConfig == null)
             _objectConfig = other.GetComponent<ObjectConfig>();
@@ -85,36 +85,51 @@ public class HitCollider : MonoBehaviour
                 return;
             }
 
-            if (tagofObj == "people" && pickupState == PickupState.Empty)
+            switch (_targetTagName)
             {
-                Debug.Log("pickup");
-                _peopleId = _objectConfig.ID;
-                GetComponent<DriverSound>().PlayPickUpSound();
-                _objectConfig.gameObject.SetActive(false);
-
-                // taxi pick passenger.
-                pickupState = PickupState.Pick;
-            }
-            else if (tagofObj == "building" && pickupState == PickupState.Pick)
-            {
-                Debug.Log("sendpeople");
-
-                if (_peopleId == _objectConfig.ID)
-                {
-                    // +100 score
-                    _moneyComponent.AddMoney(100);
-                    GetComponent<DriverSound>().PlaySentSound();
-                }
-                else
-                {
-                    // -100 score
-                    _moneyComponent.DeductMoney(100);
-                    GetComponent<DriverSound>().PlayLosingSound();
-                }
-
-                // taxi has not passenger.
-                pickupState = PickupState.Empty;
+                case "people":
+                    HandlePassengerState();
+                    break;
+                case "building":
+                    HandleBuildingState();
+                    break;
             }
         }
+    }
+
+    private void HandlePassengerState()
+    {
+        if (_pickupState != PickupState.Empty) return;
+
+        Debug.Log("pickup");
+        _peopleId = _objectConfig.ID;
+        GetComponent<DriverSound>().PlayPickUpSound();
+        _objectConfig.gameObject.SetActive(false);
+
+        // taxi pick passenger.
+        _pickupState = PickupState.Pick;
+    }
+
+    private void HandleBuildingState()
+    {
+        if (_pickupState != PickupState.Pick) return;
+
+        Debug.Log("sent passenger");
+
+        if (_peopleId == _objectConfig.ID)
+        {
+            // +100 score
+            _moneyComponent.AddMoney(100);
+            GetComponent<DriverSound>().PlaySentSound();
+        }
+        else
+        {
+            // -100 score
+            _moneyComponent.DeductMoney(100);
+            GetComponent<DriverSound>().PlayLosingSound();
+        }
+
+        // taxi has not passenger.
+        _pickupState = PickupState.Empty;
     }
 }
