@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 35d52767d500d664cb32a78f39dfd8f2
-timeCreated: 1516982673
-=======
-guid: 058b31e2abe03b141a766d84d5f6e6dd
-timeCreated: 1516982724
->>>>>>> 233a464309529587c469544ffd76f81a0ab5f0b6
+guid: 8315fba9c4d2249ee8bed6bd54d4948b
+timeCreated: 1517039091
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -50,12 +45,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-=======
-  spritePixelsToUnits: 1500
->>>>>>> 233a464309529587c469544ffd76f81a0ab5f0b6
+  spriteBorder: {x: 0, y: 449, z: 0, w: 124}
+  spritePixelsToUnits: 150
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -75,8 +66,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
-=======
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +106,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
->>>>>>> 233a464309529587c469544ffd76f81a0ab5f0b6
   spriteSheet:
     serializedVersion: 2
     sprites: []
