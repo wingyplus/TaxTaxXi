@@ -69,33 +69,32 @@ public class HitCollider : MonoBehaviour
             if (forpickup >= 0)
             {
                 forpickup -= Time.deltaTime;
+                return;
             }
-            else
+
+            if (tagofObj == "people" && canpickup)
             {
-                if (tagofObj == "people" && canpickup)
+                Debug.Log("pickup");
+                _peopleId = _objectConfig.ID;
+                GetComponent<DriverSound>().PlayPickUpSound();
+                _objectConfig.gameObject.SetActive(false);
+                canpickup = false;
+            }
+            else if (tagofObj == "building" && !canpickup)
+            {
+                Debug.Log("sendpeople");
+                canpickup = true;
+                if (_peopleId == _objectConfig.ID)
                 {
-                    Debug.Log("pickup");
-                    _peopleId = _objectConfig.ID;
-                    GetComponent<DriverSound>().PlayPickUpSound();
-                    _objectConfig.gameObject.SetActive(false);
-                    canpickup = false;
+                    // +100 score
+                    _moneyComponent.AddMoney(100);
+                    GetComponent<DriverSound>().PlaySentSound();
                 }
-                else if (tagofObj == "building" && !canpickup)
+                else
                 {
-                    Debug.Log("sendpeople");
-                    canpickup = true;
-                    if (_peopleId == _objectConfig.ID)
-                    {
-                        // +100 score
-                        _moneyComponent.AddMoney(100);
-                        GetComponent<DriverSound>().PlaySentSound();
-                    }
-                    else
-                    {
-                        // -100 score
-                        _moneyComponent.DeductMoney(100);
-                        GetComponent<DriverSound>().PlayLosingSound();
-                    }
+                    // -100 score
+                    _moneyComponent.DeductMoney(100);
+                    GetComponent<DriverSound>().PlayLosingSound();
                 }
             }
         }
