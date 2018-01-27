@@ -15,7 +15,7 @@ public class CarController : MonoBehaviour
     private bool _isMove;
     private Vector3 _carMove;
     private float _velocity;
-
+	public ParticleSystem[] effectsmoke;
     void Start()
     {
         _isMove = false;
@@ -44,9 +44,16 @@ public class CarController : MonoBehaviour
             _carMove = new Vector3(_velocity * -1.0f, 0, 0);
             transform.Translate(_carMove * Time.deltaTime);
             _velocity -= Fraction;
+			if (effectsmoke [0].isStopped) {
+				effectsmoke [0].Play ();
+				//effectsmoke [1].Play ();
+			}
         }
         else
-        {
+		{if (effectsmoke [0].isPlaying) {
+				effectsmoke [0].Stop ();
+				//effectsmoke [1].Stop ();
+			}
             _velocity = 0f;
         }
     }

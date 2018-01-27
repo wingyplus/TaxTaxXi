@@ -27,6 +27,7 @@ public class ObjectSpawner : MonoBehaviour {
         }
     }
 
+	public  List<ObjectSelfDestroyer> ObjectSelfDestroyer;
     void Update()
     {
         // Spawn new object offscreen
@@ -46,7 +47,11 @@ public class ObjectSpawner : MonoBehaviour {
                 startPlatform.transform.rotation = transform.rotation;
                 startPlatform.SetActive(true);
                 transform.position = new Vector3(transform.position.x - (objectswidth[selector] / 2), transform.position.y, transform.position.z);
-                startPlatform.GetComponent<ObjectSelfDestroyer>().SetObjectDestructionPoint(ObjectDestroyReference);
+				ObjectSelfDestroyer.Add (startPlatform.GetComponent<ObjectSelfDestroyer> ());
+				ObjectSelfDestroyer[ObjectSelfDestroyer.Count-1].SetObjectDestructionPoint(ObjectDestroyReference);
+				//startPlatform.GetComponent<ObjectSelfDestroyer> ();
+
+				//ObjectSelfDestroyer.SetObjectDestructionPoint(ObjectDestroyReference);
             }
         }
     }
