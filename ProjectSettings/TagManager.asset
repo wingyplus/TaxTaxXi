@@ -6,6 +6,7 @@ TagManager:
   tags:
   - building
   - people
+  - car
   layers:
   - Default
   - TransparentFX

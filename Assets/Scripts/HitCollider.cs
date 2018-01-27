@@ -16,7 +16,6 @@ public class HitCollider : MonoBehaviour
     public string IDpeople;
     public bool canpickup;
     private ObjectConfig _ObjectConfig;
-    private bool _pickPassengerAndPlaySound;
 
     public UnityEngine.UI.Text Money;
     private MoneyComponent _moneyComponent;
@@ -24,7 +23,6 @@ public class HitCollider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		_pickPassengerAndPlaySound = false;
         canpickup = true;
         _moneyComponent = Money.GetComponent<MoneyComponent>();
     }
@@ -60,7 +58,9 @@ public class HitCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null)
+        Debug.Log(canpickup);
+		Debug.Log(tagofObj);
+		if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null)
         {
             if (forpickup >= 0)
             {
@@ -74,7 +74,9 @@ public class HitCollider : MonoBehaviour
                     Debug.Log("pickup");
                     IDpeople = _ObjectConfig.ID;
 
-                    _ObjectConfig.gameObject.GetComponent<Man>().GotPickedUp();
+                    GetComponent<DriverSound>().PlayPickUpSound();
+
+					_ObjectConfig.gameObject.SetActive(false);
 
                     canpickup = false;
                 }
@@ -82,6 +84,9 @@ public class HitCollider : MonoBehaviour
                 {
 
                     Debug.Log("sendpeople");
+
+					GetComponent<DriverSound>().PlaySentSound();
+
                     canpickup = true;
                     if (IDpeople == _ObjectConfig.ID)
                     {

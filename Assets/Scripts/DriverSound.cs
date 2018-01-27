@@ -2,30 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class Man : MonoBehaviour {
+public class DriverSound : MonoBehaviour {
 
+	
 	public AudioClip pickUpSound;
 	public AudioClip sentSound;
 
 	private bool picking;
+	private bool sending;
 
 	void Start()
 	{
 		picking = false;
-	}
-
-	void Update()
-	{
-		if( picking && !GetComponent<AudioSource>().isPlaying ){
-			gameObject.SetActive(false);
-			picking = false;
-		}
-	}
-	public void GotPickedUp(){
-		PlayPickUpSound();
-
-        picking = true;
+		sending = false;
 	}
 
 	public void PlayPickUpSound() {
@@ -35,4 +24,5 @@ public class Man : MonoBehaviour {
 	public void PlaySentSound() {
 		GetComponent<AudioSource>().PlayOneShot(sentSound);
 	}
+
 }
