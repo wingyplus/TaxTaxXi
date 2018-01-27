@@ -89,13 +89,12 @@ public class HitCollider : MonoBehaviour
                 {
                     Debug.Log("sendpeople");
 
-					GetComponent<DriverSound>().PlaySentSound();
-
                     canpickup = true;
                     if (IDpeople == _ObjectConfig.ID)
                     {
                         // +100 score
                         _moneyComponent.AddMoney(100);
+						GetComponent<DriverSound>().PlaySentSound();
                     }
                     else
                     {
