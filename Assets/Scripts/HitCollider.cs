@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class HitCollider : MonoBehaviour
 {
+    public enum OnTriggeris
+    {
+        Enter,
+        Exit,
+        Stay
+    };
 
-    public enum OnTriggeris { Enter, Exit, Stay };
     public OnTriggeris step = OnTriggeris.Enter;
     public string tagofObj;
     public float counttime;
@@ -55,6 +60,7 @@ public class HitCollider : MonoBehaviour
 
         step = OnTriggeris.Stay;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -68,7 +74,6 @@ public class HitCollider : MonoBehaviour
             }
             else
             {
-
                 if (tagofObj == "people" && canpickup)
                 {
                     Debug.Log("pickup");
@@ -82,7 +87,6 @@ public class HitCollider : MonoBehaviour
                 }
                 else if (tagofObj == "building" && !canpickup)
                 {
-
                     Debug.Log("sendpeople");
 
 					GetComponent<DriverSound>().PlaySentSound();
@@ -96,7 +100,7 @@ public class HitCollider : MonoBehaviour
                     else
                     {
                         // -100 score
-	                    _moneyComponent.DeductMoney(100);
+                        _moneyComponent.DeductMoney(100);
                     }
                 }
             }
