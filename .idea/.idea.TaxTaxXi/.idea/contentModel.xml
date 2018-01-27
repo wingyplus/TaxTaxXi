@@ -17,6 +17,7 @@
           <e p="CameraMovement.cs" t="Include" />
           <e p="CarController.cs" t="Include" />
           <e p="HitCollider.cs" t="Include" />
+          <e p="MoneyComponent.cs" t="Include" />
           <e p="ObjectPooler.cs" t="Include" />
           <e p="ObjectSelfDestroyer.cs" t="Include" />
           <e p="ObjectSpawner.cs" t="Include" />

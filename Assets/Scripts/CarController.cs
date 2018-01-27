@@ -21,17 +21,8 @@ public class CarController : MonoBehaviour
         _isMove = false;
         _carMove = Vector3.zero;
         _velocity = 0f;
-        ResetMoney();
-    }
-
-    private void ResetMoney()
-    {
-        Money.text = "0";
-    }
-
-    private void AddMoney(int money)
-    {
-        Money.text = (money + int.Parse(Money.text)).ToString();
+        
+        Money.GetComponent<MoneyComponent>().ResetAmount();
     }
 
     // Update is called once per frame
