@@ -13,6 +13,7 @@ public class ObjectSpawner : MonoBehaviour {
     private int selector;
     private int startselector;
     private float[] objectswidth;
+    private Vector3 newObjectPos;
 
     public ObjectPooler[] ObjectPool;
 
@@ -35,12 +36,36 @@ public class ObjectSpawner : MonoBehaviour {
             distance = Random.Range(distancemin, distancemax);
 
             // Do not spawn object to overlap each other
-            GameObject startPlatform = ObjectPool[startselector].GetPooledObject();
-            transform.position = new Vector3(transform.position.x - (objectswidth[startselector] / 2) - distance, transform.position.y, transform.position.z);
-            startPlatform.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            startPlatform.transform.rotation = transform.rotation;
-            startPlatform.SetActive(true);
-            transform.position = new Vector3(transform.position.x - (objectswidth[selector] / 2), transform.position.y, transform.position.z);
+            newObjectPos = new Vector3(transform.position.x - (objectswidth[startselector] / 2) - distance, transform.position.y, transform.position.z);
+            if(!isNewObjectOverlap(newObjectPos, objectswidth[selector]))
+            {
+                GameObject startPlatform = ObjectPool[startselector].GetPooledObject();
+                transform.position = newObjectPos;
+                startPlatform.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                startPlatform.transform.rotation = transform.rotation;
+                startPlatform.SetActive(true);
+                transform.position = new Vector3(transform.position.x - (objectswidth[selector] / 2), transform.position.y, transform.position.z);
+            }
         }
+    }
+
+    bool isNewObjectOverlap(Vector3 newObjectPos, float newObjectWidth)
+    {
+        bool isOverlapping = false;
+
+        //Check left and right boundary of new object
+        newObjectPos.x -= newObjectWidth;
+        if (Physics2D.Raycast(newObjectPos, transform.TransformDirection(Vector3.forward), 10))
+        {
+            isOverlapping = true;
+        }
+
+        newObjectPos.x += newObjectWidth * 2;
+        if (Physics2D.Raycast(newObjectPos, transform.TransformDirection(Vector3.forward), 10))
+        {
+            isOverlapping = true;
+        }
+
+        return isOverlapping;
     }
 }
