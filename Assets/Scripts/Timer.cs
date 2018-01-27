@@ -6,28 +6,27 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
 	public Text screentime;
-	public Text screentime1;
-	public float starttime;
-	public float time;
-	public float countdown;
-	public bool count;
+    public float timer;
+
+    private float remainingTime;
+	private bool count;
 
 
 	// Use this for initialization
 	void Start () {
-		time = starttime;
+        remainingTime = timer;
+        count = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if(count){
-		time -= countdown * Time.deltaTime;
-		screentime.text = "Timer : " + Mathf.Round (time);
-		screentime1.text = "Timer : " + Mathf.Round (time);
+            remainingTime -= Time.deltaTime;
+		    screentime.text = Mathf.Round (remainingTime).ToString();
 		}
 
-		if (time <= 0) {
+		if (remainingTime <= 0) {
 			count = false;
 		}
 	}
