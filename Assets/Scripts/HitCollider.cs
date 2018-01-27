@@ -100,6 +100,7 @@ public class HitCollider : MonoBehaviour
                     {
                         // -100 score
                         _moneyComponent.DeductMoney(100);
+                        GetComponent<DriverSound>().PlayLosingSound();
                     }
                 }
             }

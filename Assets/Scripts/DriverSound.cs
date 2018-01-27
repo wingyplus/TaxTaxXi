@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class DriverSound : MonoBehaviour {
 
 	
 	public AudioClip pickUpSound;
 	public AudioClip sentSound;
-
-	private bool picking;
-	private bool sending;
-
-	void Start()
-	{
-		picking = false;
-		sending = false;
-	}
+	public AudioClip losingSound;
 
 	public void PlayPickUpSound() {
 		GetComponent<AudioSource>().PlayOneShot(pickUpSound);
@@ -23,6 +16,10 @@ public class DriverSound : MonoBehaviour {
 
 	public void PlaySentSound() {
 		GetComponent<AudioSource>().PlayOneShot(sentSound);
+	}
+
+	public void PlayLosingSound() {
+		GetComponent<AudioSource>().PlayOneShot(losingSound);
 	}
 
 }
