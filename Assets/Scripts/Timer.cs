@@ -23,8 +23,7 @@ public class Timer : MonoBehaviour {
 
 		if(count){
 		time -= countdown * Time.deltaTime;
-		screentime.text = "Timer : " + Mathf.Round (time);
-		screentime1.text = "Timer : " + Mathf.Round (time);
+		screentime.text = "" + Mathf.Round (time);
 		}
 
 		if (time <= 0) {

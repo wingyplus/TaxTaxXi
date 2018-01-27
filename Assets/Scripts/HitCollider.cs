@@ -99,6 +99,7 @@ public class HitCollider : MonoBehaviour
 
     private void HandlePassengerState()
     {
+		_moneyComponent.ok.Play ();
         if (_pickupState != PickupState.Empty) return;
 
         Debug.Log("pickup");
