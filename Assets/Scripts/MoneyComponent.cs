@@ -19,6 +19,11 @@ public class MoneyComponent : MonoBehaviour
 		_amount = 0;
 	}
 
+	public void DeductMoney(double amount)
+	{
+		_amount -= amount;
+	}
+
 	// Use this for initialization
 	void Start ()
 	{

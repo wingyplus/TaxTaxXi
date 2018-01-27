@@ -31,7 +31,7 @@ public class HitCollider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //In 
+        //In
         tagofObj = other.tag;
         forpickup = counttime;
         if (_ObjectConfig == null)
@@ -68,7 +68,7 @@ public class HitCollider : MonoBehaviour
             }
             else
             {
-                
+
                 if (tagofObj == "people" && canpickup)
                 {
                     Debug.Log("pickup");
@@ -85,13 +85,13 @@ public class HitCollider : MonoBehaviour
                     canpickup = true;
                     if (IDpeople == _ObjectConfig.ID)
                     {
-                        // +100 score 
+                        // +100 score
                         _moneyComponent.AddMoney(100);
                     }
                     else
                     {
                         // -100 score
-
+	                    _moneyComponent.DeductMoney(100);
                     }
                 }
             }
