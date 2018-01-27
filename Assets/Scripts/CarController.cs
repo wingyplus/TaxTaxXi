@@ -8,6 +8,7 @@ public class CarController : MonoBehaviour
 {
     public KeyCode[] InputKeys;
     public float Speed;
+    public float MaxVelocity;
     public float Fraction;
     public Text Money;
 
@@ -36,10 +37,15 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if ((Input.GetKeyDown(InputKeys[0]) && _isMove) ||( Input.GetKeyDown(InputKeys[1]) && !_isMove))
+        if ((Input.GetKeyDown(InputKeys[0]) && _isMove) || (Input.GetKeyDown(InputKeys[1]) && !_isMove))
         {
-			_isMove = !_isMove;
-            _velocity += Speed;
+            _isMove = !_isMove;
+
+            // dont't add more velocity when reach MaxVelocity
+            if (_velocity + Speed <= MaxVelocity)
+            {
+                _velocity += Speed;
+            }
         }
 
         if (_velocity > 0)

@@ -676,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputKeys: 6100000064000000
   Speed: 0.8
+  MaxVelocity: 30
   Fraction: 0.03
   Money: {fileID: 471641336}
 --- !u!212 &1603874215
