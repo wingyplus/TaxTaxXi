@@ -20,7 +20,7 @@ public class HitCollider : MonoBehaviour
     //pick people
     public string IDpeople;
     public bool canpickup;
-    private ObjectConfig _ObjectConfig;
+    private ObjectConfig _objectConfig;
 
     public UnityEngine.UI.Text Money;
     private MoneyComponent _moneyComponent;
@@ -37,8 +37,8 @@ public class HitCollider : MonoBehaviour
         //In
         tagofObj = other.tag;
         forpickup = counttime;
-        if (_ObjectConfig == null)
-            _ObjectConfig = other.GetComponent<ObjectConfig>();
+        if (_objectConfig == null)
+            _objectConfig = other.GetComponent<ObjectConfig>();
 
         step = OnTriggeris.Enter;
     }
@@ -46,8 +46,8 @@ public class HitCollider : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         //Out
-        if (_ObjectConfig == other.GetComponent<ObjectConfig>())
-            _ObjectConfig = null;
+        if (_objectConfig == other.GetComponent<ObjectConfig>())
+            _objectConfig = null;
 
         step = OnTriggeris.Exit;
     }
@@ -55,8 +55,8 @@ public class HitCollider : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         //Stay
-        if (_ObjectConfig == null)
-            _ObjectConfig = other.GetComponent<ObjectConfig>();
+        if (_objectConfig == null)
+            _objectConfig = other.GetComponent<ObjectConfig>();
 
         step = OnTriggeris.Stay;
     }
@@ -64,7 +64,7 @@ public class HitCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null)
+        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _objectConfig != null)
         {
             if (forpickup >= 0)
             {
@@ -75,16 +75,16 @@ public class HitCollider : MonoBehaviour
                 if (tagofObj == "people" && canpickup)
                 {
                     Debug.Log("pickup");
-                    IDpeople = _ObjectConfig.ID;
+                    IDpeople = _objectConfig.ID;
                     GetComponent<DriverSound>().PlayPickUpSound();
-                    _ObjectConfig.gameObject.SetActive(false);
+                    _objectConfig.gameObject.SetActive(false);
                     canpickup = false;
                 }
                 else if (tagofObj == "building" && !canpickup)
                 {
                     Debug.Log("sendpeople");
                     canpickup = true;
-                    if (IDpeople == _ObjectConfig.ID)
+                    if (IDpeople == _objectConfig.ID)
                     {
                         // +100 score
                         _moneyComponent.AddMoney(100);
