@@ -64,9 +64,7 @@ public class HitCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canpickup);
-		Debug.Log(tagofObj);
-		if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null)
+        if (step == OnTriggeris.Stay && _CarController.GetCarVelocity() == 0 && _ObjectConfig != null)
         {
             if (forpickup >= 0)
             {
@@ -78,23 +76,19 @@ public class HitCollider : MonoBehaviour
                 {
                     Debug.Log("pickup");
                     IDpeople = _ObjectConfig.ID;
-
                     GetComponent<DriverSound>().PlayPickUpSound();
-
-					_ObjectConfig.gameObject.SetActive(false);
-
+                    _ObjectConfig.gameObject.SetActive(false);
                     canpickup = false;
                 }
                 else if (tagofObj == "building" && !canpickup)
                 {
                     Debug.Log("sendpeople");
-
                     canpickup = true;
                     if (IDpeople == _ObjectConfig.ID)
                     {
                         // +100 score
                         _moneyComponent.AddMoney(100);
-						GetComponent<DriverSound>().PlaySentSound();
+                        GetComponent<DriverSound>().PlaySentSound();
                     }
                     else
                     {
