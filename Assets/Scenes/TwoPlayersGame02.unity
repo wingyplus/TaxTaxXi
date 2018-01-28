@@ -386,11 +386,11 @@ MonoBehaviour:
   ObjectPool:
   - {fileID: 1615901419}
   ObjectDestroyReference: {fileID: 1966249550}
-  _pickcolor:
-  - {r: 0.8897059, g: 0.39389855, b: 0.09158735, a: 1}
-  - {r: 0.3226103, g: 0.3263184, b: 0.8602941, a: 1}
-  - {r: 1, g: 0.9843137, b: 0, a: 1}
-  - {r: 0.56093204, g: 0.8746532, b: 0.9191176, a: 1}
+  PickSprites:
+  - {fileID: 21300000, guid: 3288acbdf6ae34c5293d65cf7649956c, type: 3}
+  - {fileID: 21300000, guid: faaedb005619a49dc8ebc0865fa26c21, type: 3}
+  - {fileID: 21300000, guid: 89b402b3da1204f69bb815a711562085, type: 3}
+  - {fileID: 21300000, guid: 915a0088d74bd4efa8597cfdaff5244c, type: 3}
   _picktext: []
   ObjectSelfDestroyer: []
 --- !u!1 &471641334
@@ -936,18 +936,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06357b20d34614b938c75b3643f67b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _OS:
-  - {fileID: 455826155}
-  - {fileID: 1551593939}
-  - {fileID: 1658850758}
+  Spawners: []
   taxi:
   - {fileID: 178769766}
   - {fileID: 1853950542}
-  _pickcolor:
-  - {r: 1, g: 0.9843137, b: 0, a: 1}
-  - {r: 0.3226103, g: 0.3263184, b: 0.8602941, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.409, g: 1, b: 0, a: 1}
+  Sprites: []
   _picktext:
   - "\u0E2A\u0E32\u0E22\u0E40\u0E2B\u0E25\u0E37\u0E2D\u0E07"
   - "\u0E21\u0E48\u0E27\u0E07"
@@ -2024,11 +2017,11 @@ MonoBehaviour:
   ObjectPool:
   - {fileID: 886537869}
   ObjectDestroyReference: {fileID: 1966249550}
-  _pickcolor:
-  - {r: 0.8897059, g: 0.39389855, b: 0.09158735, a: 1}
-  - {r: 0.3226103, g: 0.3263184, b: 0.8602941, a: 1}
-  - {r: 1, g: 0.9843137, b: 0, a: 1}
-  - {r: 0.56093204, g: 0.8746532, b: 0.9191176, a: 1}
+  PickSprites:
+  - {fileID: 21300000, guid: 6f6d8c9e8390f4f318a5451731cbffcb, type: 3}
+  - {fileID: 21300000, guid: 4871733c12e62481fa4b981257628f3b, type: 3}
+  - {fileID: 21300000, guid: cce63ba5d2b8f438693f0104cfe6b9dc, type: 3}
+  - {fileID: 21300000, guid: 5ce94d62d2ec141bc96e367113b3878c, type: 3}
   _picktext: []
   ObjectSelfDestroyer: []
 --- !u!1 &1590118693
@@ -2184,7 +2177,7 @@ MonoBehaviour:
   ObjectPool:
   - {fileID: 663985495}
   ObjectDestroyReference: {fileID: 1966249550}
-  _pickcolor: []
+  PickSprites: []
   _picktext: []
   ObjectSelfDestroyer: []
 --- !u!1 &1853950537

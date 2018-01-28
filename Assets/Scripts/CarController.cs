@@ -26,7 +26,7 @@ public class CarController : MonoBehaviour
         _isMove = false;
         _carMove = Vector3.zero;
         _velocity = 0f;
-        
+
         Money.GetComponent<MoneyComponent>().ResetAmount();
     }
 
@@ -35,7 +35,7 @@ public class CarController : MonoBehaviour
     {
         if (_acceptInput)
         {
-            
+
             if ((Input.GetKeyDown(InputKeys[0]) && _isMove) || (Input.GetKeyDown(InputKeys[1]) && !_isMove))
             {
                 _isMove = !_isMove;
@@ -72,8 +72,6 @@ public class CarController : MonoBehaviour
                 engineSound.pitch = 1;
             }
         }
-
-        Debug.Log(engineSound.pitch);
     }
 
     public float GetCarVelocity()
