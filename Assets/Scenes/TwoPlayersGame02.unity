@@ -943,7 +943,18 @@ MonoBehaviour:
   taxi:
   - {fileID: 178769766}
   - {fileID: 1853950542}
-  Sprites: []
+  Sprites:
+  - {fileID: 21300000, guid: 71c12cf5d108da94fb2189ad8f4f55cf, type: 3}
+  ManSprites:
+  - {fileID: 21300000, guid: 6f6d8c9e8390f4f318a5451731cbffcb, type: 3}
+  - {fileID: 21300000, guid: 4871733c12e62481fa4b981257628f3b, type: 3}
+  - {fileID: 21300000, guid: cce63ba5d2b8f438693f0104cfe6b9dc, type: 3}
+  - {fileID: 21300000, guid: 5ce94d62d2ec141bc96e367113b3878c, type: 3}
+  BuildingSprites:
+  - {fileID: 21300000, guid: 3288acbdf6ae34c5293d65cf7649956c, type: 3}
+  - {fileID: 21300000, guid: faaedb005619a49dc8ebc0865fa26c21, type: 3}
+  - {fileID: 21300000, guid: 89b402b3da1204f69bb815a711562085, type: 3}
+  - {fileID: 21300000, guid: 915a0088d74bd4efa8597cfdaff5244c, type: 3}
   _picktext:
   - "\u0E2A\u0E32\u0E22\u0E40\u0E2B\u0E25\u0E37\u0E2D\u0E07"
   - "\u0E21\u0E48\u0E27\u0E07"

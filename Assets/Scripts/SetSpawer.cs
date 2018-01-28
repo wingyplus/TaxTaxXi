@@ -8,13 +8,16 @@ public class SetSpawer : MonoBehaviour
     public Transform[] taxi;
     public Sprite[] Sprites;
 
+    public Sprite[] ManSprites;
+    public Sprite[] BuildingSprites;
+
     public string[] _picktext;
 
     //private float taxiX;
     // Use this for initialization
     void Start()
     {
-        for (int x = 0; x < Spawners.Length; x++)
+        for (int x = 0; x < 1; x++)
         {
             Spawners[x].PickSprites = new Sprite[Sprites.Length];
             Spawners[x]._picktext = new string[_picktext.Length];
@@ -23,6 +26,22 @@ public class SetSpawer : MonoBehaviour
                 Spawners[x].PickSprites[y] = Sprites[y];
                 Spawners[x]._picktext[y] = _picktext[y];
             }
+        }
+
+        Spawners[1].PickSprites = new Sprite[ManSprites.Length];
+        Spawners[1]._picktext = new string[_picktext.Length];
+        for (var i = 0; i < ManSprites.Length; i++)
+        {
+            Spawners[1].PickSprites[i] = ManSprites[i];
+            Spawners[1]._picktext[i] = _picktext[i];
+        }
+
+        Spawners[2].PickSprites = new Sprite[BuildingSprites.Length];
+        Spawners[2]._picktext = new string[_picktext.Length];
+        for (var i = 0; i < BuildingSprites.Length; i++)
+        {
+            Spawners[2].PickSprites[i] = BuildingSprites[i];
+            Spawners[2]._picktext[i] = _picktext[i];
         }
     }
 
