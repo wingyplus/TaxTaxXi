@@ -740,6 +740,7 @@ MonoBehaviour:
   Money: {fileID: 0}
   effectsmoke:
   - {fileID: 198302718327811668}
+  engineSound: {fileID: 82046633937326222}
 --- !u!198 &198302718327811668
 ParticleSystem:
   m_ObjectHideFlags: 1
