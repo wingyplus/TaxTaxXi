@@ -254,7 +254,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925144649377056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.49, y: -2.6, z: 0}
+  m_LocalPosition: {x: 6.52, y: -3.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734352372527752}
@@ -478,7 +478,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -502,7 +502,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8a9cef2bbc47a4f719b5a5cb0adf301f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -558,7 +558,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -716,16 +716,12 @@ MonoBehaviour:
   Money: {fileID: 0}
   MessageBoxMinus: {fileID: 102342694259147790}
   Minus_Message:
-  - '!@## !'
-  - '@#%%@#@ '
+  - "\u0E42\u0E14\u0E19\u0E2B\u0E31\u0E01\u0E15\u0E31\u0E07 555"
+  - xx*
   MessageBoxPlus: {fileID: 102922124741696190}
-  Plus_Message:
-  - Thank
-  - Good job!
+  Plus_Message: []
   MessageBox_dontpick: {fileID: 102778664614963462}
-  dontpick_Message:
-  - "\u0E2A\u0E48\u0E07\u0E41\u0E01\u0E4A\u0E2A"
-  - "\u0E2A\u0E48\u0E07\u0E23\u0E16"
+  dontpick_Message: []
 --- !u!114 &114893964766409540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1312726dff589f74f8eb4879b145828f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputKeys: 6100000064000000
+  InputKeys: 780000007a000000
   Speed: 0.8
   MaxVelocity: 30
   Fraction: 0.03
@@ -4194,7 +4190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6516724ecb1b8bc489685fe68e4149bf, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9553683, g: 0.9917139, b: 0.039878216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

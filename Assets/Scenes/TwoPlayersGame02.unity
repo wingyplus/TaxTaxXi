@@ -234,6 +234,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114565662928101474, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+        type: 2}
+      propertyPath: Minus_Message.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4919245526989300, guid: 472a818ffafc34e50a3d60adc7aabc9d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.49
@@ -276,19 +281,34 @@ Prefab:
       propertyPath: Money
       value: 
       objectReference: {fileID: 514071740}
-    - target: {fileID: 50070431188887436, guid: 472a818ffafc34e50a3d60adc7aabc9d,
-        type: 2}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1925144649377056, guid: 472a818ffafc34e50a3d60adc7aabc9d, type: 2}
       propertyPath: m_Name
       value: Taxi2P
       objectReference: {fileID: 0}
-    - target: {fileID: 82584440984002134, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+    - target: {fileID: 114565662928101474, guid: 472a818ffafc34e50a3d60adc7aabc9d,
         type: 2}
-      propertyPath: m_Volume
-      value: 0.4
+      propertyPath: Minus_Message.Array.data[0]
+      value: "\u0E42\u0E14\u0E19\u0E2B\u0E31\u0E01\u0E15\u0E31\u0E07 555"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114565662928101474, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+        type: 2}
+      propertyPath: Minus_Message.Array.data[1]
+      value: xx*
+      objectReference: {fileID: 0}
+    - target: {fileID: 212229000327054448, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212229000327054448, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212229000327054448, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114893964766409540, guid: 472a818ffafc34e50a3d60adc7aabc9d,
         type: 2}
@@ -539,25 +559,10 @@ Prefab:
       propertyPath: InputKeys.Array.data[0]
       value: 97
       objectReference: {fileID: 0}
-    - target: {fileID: 50070431188887436, guid: 472a818ffafc34e50a3d60adc7aabc9d,
+    - target: {fileID: 114893964766409540, guid: 472a818ffafc34e50a3d60adc7aabc9d,
         type: 2}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82046633937326222, guid: 472a818ffafc34e50a3d60adc7aabc9d,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82584440984002134, guid: 472a818ffafc34e50a3d60adc7aabc9d,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82584440984002134, guid: 472a818ffafc34e50a3d60adc7aabc9d,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.4
+      propertyPath: InputKeys.Array.data[1]
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114893964766409540, guid: 472a818ffafc34e50a3d60adc7aabc9d,
         type: 2}
