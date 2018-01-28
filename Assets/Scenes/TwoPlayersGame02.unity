@@ -936,7 +936,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06357b20d34614b938c75b3643f67b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawners: []
+  Spawners:
+  - {fileID: 1658850758}
+  - {fileID: 1551593939}
+  - {fileID: 455826155}
   taxi:
   - {fileID: 178769766}
   - {fileID: 1853950542}
