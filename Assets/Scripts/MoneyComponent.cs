@@ -8,14 +8,10 @@ public class MoneyComponent : MonoBehaviour
 
 	private double _amount;
 	private Text _text;
-	public AudioSource no;
-	public AudioSource ok;
-	public AudioSource thankyou;
 
 	public void AddMoney(double amount)
 	{
 		_amount += amount;
-		thankyou.Play ();
 	}
 
 	public void ResetAmount()
@@ -26,7 +22,6 @@ public class MoneyComponent : MonoBehaviour
 	public void DeductMoney(double amount)
 	{
 		_amount -= amount;
-		no.Play ();
 	}
 
 	// Use this for initialization
