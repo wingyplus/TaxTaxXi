@@ -37,13 +37,8 @@ public class Timer : MonoBehaviour {
 	void Update () {
 
 		if(count){
-<<<<<<< HEAD
-		time -= countdown * Time.deltaTime;
-		screentime.text = "" + Mathf.Round (time);
-=======
             remainingTime -= Time.deltaTime;
 		    screentime.text = Mathf.Round (remainingTime).ToString();
->>>>>>> 97cea60ffaf6f3ba45af5d5af009749c8af0d9d8
 		}
 
 		if (remainingTime <= 0) {
